@@ -1,0 +1,712 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Marubini Leo e Mattia (Copy)</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Young+Serif&family=Figtree:wght@400;500;600;700&family=Caveat:wght@500;600&display=swap" rel="stylesheet">
+<style>
+/* Layout: bottega storica cremonese, raffinata. Carta avorio, capitoli numerati in romano,
+   foto in cornici ad arco (gli archi del Duomo), disegni a china: skyline di piazza del Comune,
+   sigillo col motto, violino, mattarello, spiga. Giallo pasta come luce, rosso Cremona e grigio
+   pietra nei dettagli, marrone per la china. Look unico, colori espliciti. */
+:root{
+  --paper:#fbf8f1;        /* avorio */
+  --white:#ffffff;
+  --pasta:#ecc45a;        /* giallo pasta, più profondo */
+  --pasta-soft:#f7e6b0;
+  --pasta-pale:#fcf3d9;
+  --stone:#e4e1da;        /* grigio pietra chiaro */
+  --stone-dark:#a29d94;
+  --red:#a5192b;          /* rosso Cremona */
+  --brown:#6b4528;        /* china marrone */
+  --ink:#2a1f17;
+  --ink-dim:#6e6155;
+  --display:'Young Serif', 'Iowan Old Style', Georgia, serif;
+  --body:'Figtree', 'Avenir Next', system-ui, -apple-system, sans-serif;
+  --hand:'Caveat', 'Bradley Hand', cursive;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;background:var(--paper)}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.7;-webkit-font-smoothing:antialiased}
+h1,h2,h3{margin:0;font-family:var(--display);font-weight:400;line-height:1.08;text-wrap:balance}
+p{margin:0}
+.wrap{max-width:560px;margin:0 auto;padding-left:max(22px, env(safe-area-inset-left,0px));padding-right:max(22px, env(safe-area-inset-right,0px))}
+.band{padding-block:80px;position:relative}
+.band.pale{background:var(--pasta-pale)}
+.band.stone{background:var(--stone)}
+.stack{display:flex;flex-direction:column;gap:22px}
+
+.stripe{height:5px;background:repeating-linear-gradient(90deg,var(--red) 0 18px,var(--stone-dark) 18px 36px)}
+
+/* Disegni a china */
+.ink{fill:none;stroke:var(--brown);stroke-width:1.3;stroke-linecap:round;stroke-linejoin:round}
+.ink .fill-pasta{fill:var(--pasta)}
+.ink .red{stroke:var(--red)}
+.js .draw *{stroke-dasharray:1;stroke-dashoffset:1}
+.js .draw.on *{animation:draw 2.6s cubic-bezier(.4,0,.2,1) forwards}
+@keyframes draw{to{stroke-dashoffset:0}}
+
+/* Intestazione capitolo */
+.chapter{display:flex;flex-direction:column;align-items:center;text-align:center;gap:14px}
+.chapter .glyph{width:64px;height:64px}
+.chapter .num{font-family:var(--display);font-size:.95rem;color:var(--red);letter-spacing:.3em}
+.chapter .kicker{font-weight:600;font-size:.72rem;letter-spacing:.28em;text-transform:uppercase;color:var(--ink-dim)}
+.chapter h2{font-size:clamp(2.1rem,9.5vw,3rem);color:var(--ink)}
+.ornament{display:flex;align-items:center;gap:12px;width:140px;margin:2px auto 0}
+.ornament::before,.ornament::after{content:"";flex:1;height:1px;background:var(--stone-dark)}
+.ornament i{width:7px;height:7px;transform:rotate(45deg);background:var(--red)}
+.note{font-family:var(--hand);font-weight:500;font-size:1.5rem;line-height:1.2;color:var(--brown)}
+
+.prose{display:flex;flex-direction:column;gap:18px;max-width:60ch;color:#3b2f26;font-size:1.04rem}
+.prose .first::first-letter{font-family:var(--display);float:left;font-size:4.1em;line-height:.82;padding:6px 12px 0 0;color:var(--red)}
+.lead{font-family:var(--display);font-size:1.32rem;line-height:1.45;color:var(--ink);text-align:center}
+
+/* HERO */
+.hero{position:relative;overflow:hidden;background:linear-gradient(180deg,var(--pasta-pale) 0%,var(--paper) 100%)}
+.hero .wrap{position:relative;z-index:1;padding-block:34px 0;display:flex;flex-direction:column;align-items:center;text-align:center;gap:18px}
+.seal{width:118px;height:118px}
+.seal .ring{animation:spin 60s linear infinite;transform-origin:60px 60px}
+@keyframes spin{to{transform:rotate(360deg)}}
+.seal text{font-family:var(--body);font-weight:600;font-size:8.6px;letter-spacing:2.4px;fill:var(--brown)}
+.wordmark{font-family:var(--display);font-size:clamp(2.6rem,13vw,3.8rem);letter-spacing:.12em;line-height:1;color:var(--ink);margin-top:4px}
+.sub{font-weight:600;font-size:.72rem;letter-spacing:.3em;text-transform:uppercase;color:var(--ink-dim)}
+.slogan{font-size:clamp(2rem,8.6vw,2.9rem);line-height:1.18;color:var(--ink);margin-top:14px;max-width:15ch}
+.slogan .w{display:inline-block}
+.slogan .ca{color:var(--red);position:relative}
+.slogan .ca svg{position:absolute;left:-6%;bottom:-.16em;width:112%;height:.3em;overflow:visible}
+.by{font-family:var(--hand);font-size:1.7rem;color:var(--brown);margin-top:2px}
+.skyline{width:min(100%,520px);height:auto;margin-top:18px;display:block}
+.ground{height:1px;background:var(--brown);opacity:.5}
+.scroll-cue{display:inline-flex;align-items:center;gap:10px;color:var(--ink);text-decoration:none;font-weight:600;font-size:.74rem;letter-spacing:.24em;text-transform:uppercase;padding:22px 0 30px}
+.scroll-cue span{display:inline-block;color:var(--red);animation:bob 2.2s ease-in-out infinite}
+@keyframes bob{50%{transform:translateY(4px)}}
+.js .slogan .w{animation:rise 1s cubic-bezier(.2,.7,.2,1) both}
+.js .slogan .ca svg path{stroke-dasharray:1;stroke-dashoffset:1;animation:draw 1s ease forwards 1.6s}
+@keyframes rise{from{transform:translateY(.4em);opacity:0}to{transform:none;opacity:1}}
+
+/* Cornici ad arco */
+.photo-slot{position:relative;aspect-ratio:3/4;max-width:100%;width:86%;margin:0 auto}
+.photo-slot::after,.slide::after{content:"";position:absolute;inset:-9px;border:1px solid var(--brown);border-radius:20px;opacity:.55;pointer-events:none}
+.photo-slot img,.photo-slot .placeholder{border-radius:12px}
+.photo-slot img{width:100%;height:100%;object-fit:cover;display:block}
+.placeholder{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;color:var(--stone-dark);font-weight:500;font-size:.9rem;text-align:center;padding:24px;background:var(--stone)}
+.placeholder svg{width:38px;height:38px}
+.photo-cap{text-align:center;margin-top:20px}
+
+/* Carosello */
+.carousel{position:relative;display:flex;gap:26px;overflow-x:auto;scroll-snap-type:x mandatory;padding:16px calc((100% + 44px - min(300px,72vw)) / 2) 30px;margin-inline:-22px;scrollbar-width:none}
+.carousel::-webkit-scrollbar{display:none}
+.slide{flex:0 0 min(300px,72vw);scroll-snap-align:center;position:relative;aspect-ratio:3/4;transition:transform .5s ease,opacity .5s ease}
+.slide:not(.is-active):not(.add){transform:scale(.9);opacity:.6}
+.slide img,.slide .placeholder{border-radius:12px}
+.slide img{width:100%;height:100%;object-fit:cover;display:block}
+.slide .num{position:absolute;left:50%;bottom:-16px;transform:translateX(-50%);width:38px;height:38px;border-radius:50%;background:var(--pasta);color:var(--ink);font-family:var(--display);font-size:1rem;display:flex;align-items:center;justify-content:center;box-shadow:0 0 0 4px var(--paper);z-index:2;font-variant-numeric:tabular-nums}
+.progress{display:flex;align-items:center;gap:14px;font-family:var(--display);font-size:.95rem;color:var(--ink-dim);font-variant-numeric:tabular-nums;margin-top:18px}
+.progress .bar{flex:1;height:2px;background:var(--stone);overflow:hidden}
+.progress .bar i{display:block;height:100%;width:0;background:var(--red);transition:width .45s ease}
+.ends{display:flex;justify-content:space-between}
+.ends .note{font-size:1.35rem}
+
+/* Evoluzione */
+.timeline{position:relative;display:flex;flex-direction:column;gap:40px;padding-left:34px}
+.timeline::before{content:"";position:absolute;left:9px;top:8px;bottom:8px;width:1px;background:var(--brown);opacity:.45}
+.tl-item{position:relative}
+.tl-item::before{content:"";position:absolute;left:-30px;top:14px;width:12px;height:12px;transform:rotate(45deg);background:var(--paper);border:1.5px solid var(--red)}
+.tl-item:last-of-type::before{background:var(--red)}
+.tl-item .frame{position:relative;aspect-ratio:4/3;background:var(--white);padding:7px;box-shadow:0 0 0 1px var(--stone),0 18px 34px -22px rgba(42,31,23,.55)}
+.tl-item img{width:100%;height:100%;object-fit:cover;display:block}
+.tl-item .placeholder{inset:7px}
+
+/* Video */
+.video-wrap{position:relative;width:86%;margin:10px auto 0}
+.video-slot{position:relative;aspect-ratio:9/16;max-height:74vh;max-width:100%;margin:0 auto;border-radius:12px;overflow:hidden;background:var(--ink);box-shadow:0 0 0 9px var(--paper),0 0 0 10px rgba(107,69,40,.55)}
+.video-slot video{width:100%;height:100%;object-fit:cover;display:block;background:#000}
+.video-slot .placeholder{background:transparent;color:var(--stone)}
+[data-slot="video"] .add-btn,[data-slot="video"] .hint{margin-top:22px}
+
+/* Contatti */
+.contacts{background:var(--ink);color:var(--paper);position:relative;overflow:hidden}
+.contacts .chapter h2{color:var(--paper)}
+.contacts .chapter .kicker{color:var(--stone-dark)}
+.contacts .chapter .num{color:var(--pasta)}
+.contacts .ink{stroke:var(--pasta)}
+.contacts .ornament::before,.contacts .ornament::after{background:rgba(255,255,255,.25)}
+.contacts .bg-tower{position:absolute;right:-18px;bottom:0;height:88%;width:auto;opacity:.12}
+.contact-list{display:flex;flex-direction:column;position:relative;z-index:1}
+.contact-row{display:flex;justify-content:space-between;gap:12px;align-items:baseline;padding:18px 0;border-bottom:1px solid rgba(255,255,255,.16);flex-wrap:wrap}
+.contact-row:last-child{border-bottom:none}
+.contact-row .k{font-weight:600;font-size:.74rem;letter-spacing:.22em;text-transform:uppercase;color:var(--stone-dark)}
+.todo{font-family:var(--display);font-size:1.15rem;color:var(--pasta)}
+
+footer{background:var(--paper);text-align:center;padding-block:50px 110px;display:flex;flex-direction:column;align-items:center;gap:10px}
+footer .violin{width:40px;height:100px}
+footer .motto{font-family:var(--display);font-size:1.05rem;letter-spacing:.14em;color:var(--ink)}
+footer .note{font-size:1.35rem}
+
+/* Comparsa allo scroll */
+.rv-pre{opacity:0;transform:translateY(28px)}
+.rv-in{opacity:1;transform:none;transition:opacity 1s ease,transform 1s cubic-bezier(.2,.7,.2,1)}
+
+/* Lightbox */
+.lightbox{position:fixed;inset:0;background:rgba(30,22,16,.95);z-index:40;display:flex;align-items:center;justify-content:center;padding:calc(env(safe-area-inset-top,0px) + 16px) 16px calc(env(safe-area-inset-bottom,0px) + 16px)}
+.lightbox img{max-width:100%;max-height:100%;object-fit:contain;border:6px solid var(--paper);animation:zoomin .35s ease}
+@keyframes zoomin{from{transform:scale(.95);opacity:0}}
+.lightbox button{position:absolute;top:calc(env(safe-area-inset-top,0px) + 12px);right:calc(env(safe-area-inset-right,0px) + 12px);background:var(--paper);color:var(--ink);border:none;border-radius:99px;width:42px;height:42px;font-size:1.1rem;cursor:pointer}
+
+/* Modifica */
+.edit-toggle{position:fixed;z-index:30;right:calc(env(safe-area-inset-right,0px) + 14px);bottom:calc(env(safe-area-inset-bottom,0px) + 14px);background:var(--red);color:var(--paper);border:none;border-radius:99px;padding:13px 20px;font:600 .8rem var(--body);letter-spacing:.12em;text-transform:uppercase;box-shadow:0 8px 22px rgba(42,31,23,.3);cursor:pointer}
+.edit-toggle[aria-pressed="true"]{background:var(--ink)}
+.status{position:fixed;z-index:31;left:50%;transform:translateX(-50%);bottom:calc(env(safe-area-inset-bottom,0px) + 76px);background:var(--ink);color:var(--paper);font-weight:600;font-size:.88rem;padding:10px 16px;border-radius:12px;max-width:calc(100% - 32px);text-align:center}
+.edit-only{display:none}
+body.editing .edit-only{display:flex}
+.add-btn{align-items:center;justify-content:center;gap:8px;border:1px dashed var(--red);color:var(--red);background:var(--paper);border-radius:12px;font:600 .8rem var(--body);letter-spacing:.14em;text-transform:uppercase;padding:15px;cursor:pointer;width:100%}
+[data-slot="noi"] .add-btn{margin-top:30px!important}
+.slide.add{display:none;align-items:center;justify-content:center;border:1px dashed var(--red);border-radius:12px}
+.slide.add::after{display:none}
+body.editing .slide.add{display:flex}
+.slide.add .add-btn{border:none;height:100%;background:transparent}
+.tools{position:absolute;left:50%;transform:translateX(-50%);top:14px;gap:8px;z-index:4}
+.tl-item .tools{top:14px;left:auto;right:14px;transform:none}
+.tools button{background:var(--paper);color:var(--ink);border:none;border-radius:99px;width:38px;height:38px;font-size:.95rem;cursor:pointer;box-shadow:0 2px 10px rgba(0,0,0,.25)}
+.tools button.del{background:var(--red);color:var(--paper)}
+.hint{font-size:.82rem;color:var(--ink-dim);justify-content:center}
+button:focus-visible,a:focus-visible{outline:2px solid var(--red);outline-offset:3px}
+.zoomable{cursor:zoom-in}
+.prose strong{font-weight:700;color:var(--ink)}
+.lead strong{font-weight:400;color:var(--red)}
+.contact-intro{text-align:center;font-weight:600;font-size:.74rem;letter-spacing:.24em;text-transform:uppercase;color:var(--stone-dark)}
+.people{display:flex;flex-direction:column;gap:14px;position:relative;z-index:1}
+.person{border:1px solid rgba(255,255,255,.18);border-radius:16px;padding:20px 20px 18px;display:flex;flex-direction:column;gap:6px;background:rgba(255,255,255,.04)}
+.pname{font-family:var(--display);font-size:1.5rem;color:var(--paper)}
+.pnum{font-family:var(--display);font-size:1.25rem;color:var(--pasta);letter-spacing:.04em;font-variant-numeric:tabular-nums;user-select:all}
+.pbtns{display:flex;gap:10px;margin-top:8px;flex-wrap:wrap}
+.pbtn{flex:1;min-width:120px;text-align:center;text-decoration:none;font-weight:700;font-size:.8rem;letter-spacing:.14em;text-transform:uppercase;padding:13px 14px;border-radius:99px;border:1px solid var(--pasta);color:var(--pasta)}
+.pbtn.wa{background:var(--pasta);color:var(--ink)}
+.contact-fab{position:fixed;z-index:30;right:calc(env(safe-area-inset-right,0px) + 14px);bottom:calc(env(safe-area-inset-bottom,0px) + 14px);background:var(--red);color:var(--paper);text-decoration:none;border-radius:99px;padding:13px 20px;font:700 .8rem var(--body);letter-spacing:.14em;text-transform:uppercase;box-shadow:0 8px 22px rgba(42,31,23,.3);transition:opacity .3s ease,transform .3s ease}
+.contact-fab.away{opacity:0;transform:translateY(12px);pointer-events:none}
+.tl-cap{margin-top:12px;font-family:var(--display);font-size:1.02rem;line-height:1.35;color:var(--ink)}
+body.editing .view-only{display:none}
+body.editing input.edit-only{display:block}
+.cap-input{width:100%;margin-top:12px;padding:10px 12px;border:1px solid var(--stone-dark);border-radius:10px;background:var(--paper);color:var(--ink);font:400 1rem var(--display)}
+.cap-input:focus{outline:2px solid var(--red);outline-offset:1px}
+.photo-slot video,.slide video,.tl-item .frame video{width:100%;height:100%;object-fit:cover;display:block;background:var(--ink)}
+.photo-slot video{border-radius:12px}.slide video{border-radius:12px}
+.play-badge{position:absolute;left:14px;top:14px;z-index:3;width:30px;height:30px;border-radius:50%;background:rgba(251,248,241,.92);color:var(--red);display:flex;align-items:center;justify-content:center;pointer-events:none;box-shadow:0 2px 8px rgba(0,0,0,.18)}
+.play-badge svg{width:12px;height:12px;margin-left:2px}
+.lightbox video{max-width:100%;max-height:100%;border:6px solid var(--paper);background:#000;animation:zoomin .35s ease}
+
+@media (prefers-reduced-motion: reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  .rv-pre{opacity:1;transform:none}
+  .js .draw *,.js .slogan .ca svg path{stroke-dashoffset:0!important}
+}
+</style>
+
+
+<!-- Simboli riutilizzati -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="torrazzo" viewBox="0 0 60 240">
+      <path d="M30 2 V12 M26 6 H34"/>
+      <path d="M24 30 L30 12 L36 30"/>
+      <path d="M22 30 H38 V46 H22 Z"/>
+      <path d="M25 46 V37 Q26.5 34 28 37 V46 M32 46 V37 Q33.5 34 35 37 V46"/>
+      <path d="M17 46 H43 L41 54 H19 Z"/>
+      <path d="M19 54 H41 V70 H19 Z"/>
+      <path d="M23 70 V60 Q25 57 27 60 V70 M28.5 70 V60 Q30 57 31.5 60 V70 M33 70 V60 Q35 57 37 60 V70"/>
+      <path d="M14 70 H46 V76 H14 Z"/>
+      <path d="M14 76 V82 H18 V76 M22 76 V82 H26 V76 M30 76 V82 H34 V76 M38 76 V82 H42 V76"/>
+      <path d="M16 82 H44 V238 H16 Z"/>
+      <path d="M24 96 V110 M30 96 V110 M36 96 V110 M22 110 Q30 90 38 110"/>
+      <path d="M25 128 V138 Q27 133 29 138 M31 138 Q33 133 35 138 V128"/>
+      <circle cx="30" cy="170" r="10"/><circle cx="30" cy="170" r="6.5"/>
+      <path d="M30 170 V163.5 M30 170 L34 173"/>
+      <path d="M25 205 V216 Q27.5 210 30 216 Q32.5 210 35 216 V205"/>
+      <path d="M8 238 H52"/>
+    </symbol>
+    <symbol id="violino" viewBox="0 0 80 200">
+      <path d="M38 14 C35 10 37 3 41.5 3 C46 3 47 9 43.5 12 C41.5 14 39.5 12 40.5 9.5"/>
+      <path d="M38 14 L37.5 28 M43 12.5 L42.5 28"/>
+      <path d="M37.8 17 H33 M37.6 24 H33 M42.8 17 H47.5 M42.6 24 H47.5"/>
+      <circle cx="31.8" cy="17" r="1.3"/><circle cx="31.8" cy="24" r="1.3"/><circle cx="48.7" cy="17" r="1.3"/><circle cx="48.7" cy="24" r="1.3"/>
+      <path d="M40 80 C54 80 65.5 86 65.5 100 C65.5 110 62 116 61 121 C57 123 57 128 57 133 C57 138 57 143 61 146 C66 152 72 158 72 166 C72 182 58 190 40 190 C22 190 8 182 8 166 C8 158 14 152 19 146 C23 143 23 138 23 133 C23 128 23 123 19 121 C18 116 14.5 110 14.5 100 C14.5 86 26 80 40 80 Z"/>
+      <path d="M40 83.5 C52 83.5 62 88.5 62 100 C62 109 59 114 58 118.5 C54 121 54 127 54 133 C54 139 54 144 58 148.5 C63 154 68.5 159 68.5 166 C68.5 179.5 56 186.5 40 186.5 C24 186.5 11.5 179.5 11.5 166 C11.5 159 17 154 22 148.5 C26 144 26 139 26 133 C26 127 26 121 22 118.5 C21 114 18 109 18 100 C18 88.5 28 83.5 40 83.5 Z" opacity=".45"/>
+      <path d="M37.5 28 L36 140 H44 L42.5 28"/>
+      <path d="M28 127 C31 134 25 146 28 154 M52 127 C49 134 55 146 52 154"/>
+      <circle cx="28" cy="127" r="1.3"/><circle cx="28" cy="154" r="1.3"/><circle cx="52" cy="127" r="1.3"/><circle cx="52" cy="154" r="1.3"/>
+      <path d="M32 152 Q40 146.5 48 152"/>
+      <path d="M37 159 L36.5 182 Q40 185.5 43.5 182 L43 159 Z"/>
+      <path d="M38.6 28 V159 M41.4 28 V159" opacity=".55"/>
+    </symbol>
+    <symbol id="spiga" viewBox="0 0 40 80">
+      <path d="M20 78 C20 60 20 40 20 8"/>
+      <path d="M20 14 c-6 -2 -7 -8 -5 -12 c4 2 6 6 5 12 Z M20 14 c6 -2 7 -8 5 -12 c-4 2 -6 6 -5 12 Z"/>
+      <path d="M20 26 c-7 -1 -9 -7 -7 -11 c5 1 7 6 7 11 Z M20 26 c7 -1 9 -7 7 -11 c-5 1 -7 6 -7 11 Z"/>
+      <path d="M20 38 c-7 -1 -9 -7 -7 -11 c5 1 7 6 7 11 Z M20 38 c7 -1 9 -7 7 -11 c-5 1 -7 6 -7 11 Z"/>
+      <path d="M20 50 c-7 -1 -9 -7 -7 -11 c5 1 7 6 7 11 Z M20 50 c7 -1 9 -7 7 -11 c-5 1 -7 6 -7 11 Z"/>
+      <path d="M20 62 c-6 0 -11 4 -12 9 M20 62 c6 0 11 4 12 9"/>
+    </symbol>
+    <symbol id="mattarello" viewBox="0 0 80 40">
+      <path d="M16 13 H64 Q67 13 67 16 V24 Q67 27 64 27 H16 Q13 27 13 24 V16 Q13 13 16 13 Z"/>
+      <path d="M13 20 H6 M67 20 H74"/>
+      <path d="M2 17 Q2 15 4 15 H6 V25 H4 Q2 25 2 23 Z M78 17 Q78 15 76 15 H74 V25 H76 Q78 25 78 23 Z"/>
+      <path d="M26 13 V27 M40 13 V27 M54 13 V27" opacity=".35"/>
+      <path d="M8 34 Q40 30 72 34"/>
+    </symbol>
+    <symbol id="uovo" viewBox="0 0 40 50">
+      <path d="M20 4 C30 4 36 22 36 31 C36 41 29 47 20 47 C11 47 4 41 4 31 C4 22 10 4 20 4 Z"/>
+      <path d="M11 30 C11 24 14 16 18 12" opacity=".5"/>
+    </symbol>
+    <symbol id="duomo" viewBox="0 0 120 120">
+      <path d="M8 116 V72 L32 58 M112 116 V72 L88 58"/>
+      <path d="M32 116 V44 L60 18 L88 44 V116"/>
+      <path d="M36 46 H84"/>
+      <path d="M38 46 v8 q2.5 -4 5 0 v-8 M47 46 v8 q2.5 -4 5 0 v-8 M56 46 v8 q2.5 -4 5 0 v-8 M65 46 v8 q2.5 -4 5 0 v-8 M74 46 v8 q2.5 -4 5 0 v-8"/>
+      <circle cx="60" cy="72" r="13"/><circle cx="60" cy="72" r="4.5"/>
+      <path d="M60 59 V67.5 M60 76.5 V85 M47 72 H55.5 M64.5 72 H73 M50.8 62.8 L56.8 68.8 M63.2 75.2 L69.2 81.2 M69.2 62.8 L63.2 68.8 M56.8 75.2 L50.8 81.2"/>
+      <path d="M50 116 V98 L60 90 L70 98 V116"/>
+      <path d="M54 116 V104 Q60 96 66 104 V116"/>
+      <path d="M16 116 V96 Q20 90 24 96 V116 M96 116 V96 Q100 90 104 96 V116"/>
+      <path d="M60 18 V10 M57 13 H63"/>
+      <path d="M2 116 H118"/>
+    </symbol>
+  </defs>
+</svg>
+
+<div class="stripe" aria-hidden="true"></div>
+
+<header class="hero">
+  <div class="wrap">
+    <svg class="seal" viewBox="0 0 120 120" aria-hidden="true">
+      <defs><path id="ringPath" d="M60 60 m-44 0 a44 44 0 1 1 88 0 a44 44 0 1 1 -88 0"/></defs>
+      <circle cx="60" cy="60" r="57" fill="none" stroke="var(--brown)" stroke-width="1"/>
+      <circle cx="60" cy="60" r="33" fill="var(--pasta)" stroke="var(--brown)" stroke-width="1"/>
+      <g class="ring"><text><textPath href="#ringPath" startOffset="0">FORTITUDO MEA IN BRACHIO · CREMONA ·</textPath></text></g>
+      <svg x="48" y="31" width="24" height="58" class="ink" style="stroke-width:3"><use href="#torrazzo"/></svg>
+    </svg>
+    <div class="wordmark">MARUBINI</div>
+    <div class="sub">Specialità artigianale · Cremona</div>
+    <h1 class="slogan" aria-label="Dai nonni a noi, da noi a ca' tua.">
+      <span class="w">Dai</span> <span class="w">nonni</span> <span class="w">a</span> <span class="w">noi,</span>
+      <span class="w">da</span> <span class="w">noi</span> <span class="w">a</span> <span class="w ca">ca'<svg viewBox="0 0 100 20" preserveAspectRatio="none" aria-hidden="true"><path pathLength="1" d="M2 12 C 20 5, 40 17, 60 9 S 92 7, 98 11" fill="none" stroke="var(--red)" stroke-width="3" stroke-linecap="round"/></svg></span> <span class="w">tua.</span>
+    </h1>
+    <div class="by">di Leo e Mattia</div>
+
+    <!-- Piazza del Comune: Battistero, Duomo, Torrazzo -->
+    <svg class="skyline draw ink" id="skyline" viewBox="0 0 400 250" aria-hidden="true">
+      <circle pathLength="1" cx="318" cy="92" r="46" class="fill-pasta" style="stroke:none;opacity:.55"/>
+      <!-- Battistero -->
+      <path pathLength="1" d="M22 248 V150 H92 V248"/>
+      <path pathLength="1" d="M18 150 L57 118 L96 150"/>
+      <path pathLength="1" d="M50 118 V104 H64 V118 M47 104 L57 92 L67 104"/>
+      <path pathLength="1" d="M26 158 v10 q3 -5 6 0 v-10 M36 158 v10 q3 -5 6 0 v-10 M46 158 v10 q3 -5 6 0 v-10 M56 158 v10 q3 -5 6 0 v-10 M66 158 v10 q3 -5 6 0 v-10 M76 158 v10 q3 -5 6 0 v-10"/>
+      <path pathLength="1" d="M48 248 V222 Q57 208 66 222 V248"/>
+      <path pathLength="1" d="M30 200 V188 Q33 182 36 188 V200 M78 200 V188 Q81 182 84 188 V200"/>
+      <!-- Duomo -->
+      <path pathLength="1" d="M104 248 V176 L140 160 M262 248 V176 L226 160"/>
+      <path pathLength="1" d="M140 248 V128 L183 92 L226 128 V248"/>
+      <path pathLength="1" d="M144 130 H222"/>
+      <path pathLength="1" d="M147 130 v12 q3 -5 6 0 v-12 M157 130 v12 q3 -5 6 0 v-12 M167 130 v12 q3 -5 6 0 v-12 M177 130 v12 q3 -5 6 0 v-12 M187 130 v12 q3 -5 6 0 v-12 M197 130 v12 q3 -5 6 0 v-12 M207 130 v12 q3 -5 6 0 v-12"/>
+      <circle pathLength="1" cx="183" cy="170" r="18"/>
+      <circle pathLength="1" cx="183" cy="170" r="6"/>
+      <path pathLength="1" d="M183 152 V164 M183 176 V188 M165 170 H177 M189 170 H201 M170.3 157.3 L178.8 165.8 M187.2 174.2 L195.7 182.7 M195.7 157.3 L187.2 165.8 M178.8 174.2 L170.3 182.7"/>
+      <path pathLength="1" d="M169 248 V214 L183 202 L197 214 V248"/>
+      <path pathLength="1" d="M174 248 V224 Q183 212 192 224 V248"/>
+      <path pathLength="1" d="M183 92 V80 M179 85 H187"/>
+      <path pathLength="1" d="M114 248 V214 Q120 206 126 214 V248 M240 248 V214 Q246 206 252 214 V248"/>
+      <!-- Torrazzo -->
+      <path pathLength="1" d="M318 4 V18 M313 9 H323"/>
+      <path pathLength="1" d="M310 40 L318 18 L326 40"/>
+      <path pathLength="1" d="M307 40 H329 V60 H307 Z"/>
+      <path pathLength="1" d="M311 60 V49 Q313 45 315 49 V60 M321 60 V49 Q323 45 325 49 V60"/>
+      <path pathLength="1" d="M301 60 H335 L332 70 H304 Z"/>
+      <path pathLength="1" d="M304 70 H332 V92 H304 Z"/>
+      <path pathLength="1" d="M308 92 V79 Q310.5 75 313 79 V92 M315.5 92 V79 Q318 75 320.5 79 V92 M323 92 V79 Q325.5 75 328 79 V92"/>
+      <path pathLength="1" d="M296 92 H340 V100 H296 Z"/>
+      <path pathLength="1" d="M296 100 V107 H301 V100 M307 100 V107 H312 V100 M318 100 V107 H323 V100 M329 100 V107 H334 V100"/>
+      <path pathLength="1" d="M299 107 H337 V248 H299 Z"/>
+      <path pathLength="1" d="M310 118 V132 M318 118 V132 M326 118 V132 M306 132 Q318 110 330 132"/>
+      <path pathLength="1" d="M311 146 V158 Q314.5 152 318 158 Q321.5 152 325 158 V146"/>
+      <circle pathLength="1" cx="318" cy="186" r="12"/>
+      <circle pathLength="1" cx="318" cy="186" r="8"/>
+      <path pathLength="1" d="M318 186 V179 M318 186 L323 189"/>
+      <path pathLength="1" d="M311 216 V230 Q314.5 223 318 230 Q321.5 223 325 230 V216"/>
+      <!-- Palazzo e terreno -->
+      <path pathLength="1" d="M337 248 V196 H392 V248"/>
+      <path pathLength="1" d="M337 196 v-5 h5 v5 h5 v-5 h5 v5 h5 v-5 h5 v5 h5 v-5 h5 v5 h5 v-5 h5 v5 h5 v-5 h5"/>
+      <path pathLength="1" d="M345 248 V222 Q352 212 359 222 V248 M368 248 V222 Q375 212 382 222 V248"/>
+      <path pathLength="1" d="M344 206 H385" class="red"/>
+      <path pathLength="1" d="M2 248 H398"/>
+    </svg>
+  </div>
+  <div class="ground" aria-hidden="true"></div>
+  <div class="wrap"><a class="scroll-cue" href="#chi">La nostra storia <span aria-hidden="true">↓</span></a></div>
+</header>
+
+<section class="band" id="chi">
+  <div class="wrap stack">
+    <div class="chapter rv">
+      <svg class="glyph ink" viewBox="0 0 60 240" style="width:28px;height:110px"><use href="#torrazzo"/></svg>
+      <div class="num">I</div>
+      <h2>Chi siamo</h2>
+      <div class="ornament"><i></i></div>
+    </div>
+    <p class="lead rv">Siamo <strong>Leo e Mattia</strong>, due ragazzi di vent'anni e studenti universitari. La <strong>tradizione dei marubini</strong> ci appassiona da sempre grazie alle <strong>nostre famiglie</strong>, quest'anno abbiamo deciso di <strong>metterci in gioco</strong> in prima persona.</p>
+    <div class="rv" style="margin-top:26px" data-slot="noi"></div>
+  </div>
+</section>
+
+<section class="band pale" id="percorso">
+  <div class="wrap stack">
+    <div class="chapter rv">
+      <svg class="glyph ink" viewBox="0 0 120 120" style="width:92px;height:92px"><use href="#duomo"/></svg>
+      <div class="num">II</div>
+      <div class="kicker">Il nostro percorso</div>
+      <h2>Dai nonni alla ricetta</h2>
+      <div class="ornament"><i></i></div>
+    </div>
+    <div class="prose rv">
+      <p class="first">Tutto è cominciato da piccoli, osservando e aiutando i <strong>nostri nonni</strong> in cucina. Da loro abbiamo preso spunto, affiancando ai loro insegnamenti la <strong>ricetta originale secondo l'Accademia Italiana della Cucina</strong>.</p>
+      <p>Dallo scorso anno abbiamo iniziato a fare <strong>prove su prove</strong>: le proporzioni, i sapori che ne risultavano, lo spessore della pasta e, soprattutto, la <strong>scelta degli ingredienti e la loro provenienza</strong>.</p>
+      <p>Tutto questo per essere all'altezza di un piatto che da sempre accompagna le nostre tavole, e per portare a voi <strong>una parte di noi e della nostra passione</strong>.</p>
+    </div>
+    <div class="rv" style="display:flex;justify-content:center;gap:26px;margin-top:14px" aria-hidden="true">
+      <svg class="ink" viewBox="0 0 40 80" width="26" height="52"><use href="#spiga"/></svg>
+      <svg class="ink" viewBox="0 0 40 50" width="30" height="38" style="align-self:flex-end"><use href="#uovo"/></svg>
+      <svg class="ink" viewBox="0 0 40 80" width="26" height="52" style="transform:scaleX(-1)"><use href="#spiga"/></svg>
+    </div>
+  </div>
+</section>
+
+<section class="band" id="processo">
+  <div class="wrap stack">
+    <div class="chapter rv">
+      <svg class="glyph ink" viewBox="0 0 80 40" style="width:92px;height:46px"><use href="#mattarello"/></svg>
+      <div class="num">III</div>
+      <div class="kicker">Il processo</div>
+      <h2>Dalla carne al marubino</h2>
+      <div class="ornament"><i></i></div>
+    </div>
+    <div class="carousel" id="carousel" data-slot="processo" aria-label="Foto del processo"></div>
+    <div class="progress"><span id="pcount">0 / 0</span><div class="bar"><i id="pbar"></i></div></div>
+    <div id="procAdd" style="display:flex;flex-direction:column"></div>
+    <div class="ends"><span class="note">la nostra ricetta</span><span class="note" style="color:var(--red)">marubino</span></div>
+    <div class="prose rv" style="margin-top:10px"><p>Tutto parte dalla <strong>cottura dei tagli di carne</strong>, ognuno nella sua pentola. Poi <strong>uova e farina</strong>, che diventano l'impasto. Le carni cotte, tritate, diventano il <strong>ripieno</strong>. La <strong>sfoglia viene tirata</strong> e successivamente <strong>tagliata a quadretti</strong> con la rotella, e su ognuno mettiamo una piccola dose di ripieno. L'ultimo passaggio è a mano: ogni marubino viene <strong>chiuso col dito</strong>, uno per uno, fino al vassoio finito.</p></div>
+  </div>
+</section>
+
+<section class="band stone" id="evoluzione">
+  <div class="wrap stack">
+    <div class="chapter rv">
+      <svg class="glyph ink" viewBox="0 0 40 80" style="width:30px;height:60px"><use href="#spiga"/></svg>
+      <div class="num">IV</div>
+      <div class="kicker">L'evoluzione</div>
+      <h2>Dai test dell'anno scorso a oggi</h2>
+      <div class="ornament"><i></i></div>
+      <p class="note">tra critiche, la cura del ripieno e i marubini fatti «cul dit»</p>
+    </div>
+    <div class="timeline" data-slot="evoluzione" style="margin-top:14px"></div>
+  </div>
+</section>
+
+<section class="band" id="sketch">
+  <div class="wrap stack">
+    <div class="chapter rv">
+      <svg class="glyph ink" viewBox="0 0 80 200" style="width:48px;height:120px"><use href="#violino"/></svg>
+      <div class="num">V</div>
+      <div class="kicker">Sketch</div>
+      <h2>Lo sketch</h2>
+      <div class="ornament"><i></i></div>
+    </div>
+    <div class="rv video-wrap" data-slot="video"></div>
+  </div>
+</section>
+
+<section class="band contacts" id="contatti">
+  <svg class="bg-tower ink" viewBox="0 0 60 240" aria-hidden="true" style="stroke-width:1"><use href="#torrazzo"/></svg>
+  <div class="wrap stack">
+    <div class="chapter rv">
+      <div class="num">VI</div>
+      <div class="kicker">Contatti</div>
+      <h2>I nostri contatti</h2>
+      <div class="ornament"><i></i></div>
+    </div>
+    <p class="contact-intro rv">Telefono e WhatsApp</p>
+    <div class="people rv">
+      <div class="person">
+        <div class="pname">Leonardo</div>
+        <div class="pnum">379 236 2466</div>
+        <div class="pbtns"><a class="pbtn" href="tel:+393792362466">Chiama</a><a class="pbtn wa" href="https://wa.me/393792362466" target="_blank" rel="noopener">WhatsApp</a></div>
+      </div>
+      <div class="person">
+        <div class="pname">Mattia</div>
+        <div class="pnum">347 999 9183</div>
+        <div class="pbtns"><a class="pbtn" href="tel:+393479999183">Chiama</a><a class="pbtn wa" href="https://wa.me/393479999183" target="_blank" rel="noopener">WhatsApp</a></div>
+      </div>
+    </div>
+  </div>
+</section>
+<div class="stripe" aria-hidden="true"></div>
+
+
+
+<script>
+document.documentElement.classList.add('js');
+(function(){const s=document.getElementById('skyline');[...s.children].forEach((el,i)=>el.style.animationDelay=(0.2+i*0.06)+'s');requestAnimationFrame(()=>s.classList.add('on'));})();
+</script>
+
+<a class="contact-fab" id="contactFab" href="#contatti">Contattaci</a>
+<button id="editToggle" hidden></button>
+<div class="status" id="status" hidden></div>
+<input type="file" id="filePick" accept="image/*,video/mp4,video/quicktime,video/webm,video/*" multiple hidden>
+<input type="file" id="videoPick" accept="video/mp4,video/quicktime,video/webm,video/*" hidden>
+
+<script>
+document.documentElement.classList.add('js');
+document.querySelectorAll('.slogan .w').forEach((w,i)=>w.style.animationDelay=(0.12+i*0.08)+'s');
+
+// Ogni voce è un id di file caricato sulla pagina (online) oppure un data: URL (solo locale)
+const state={noi:[],processo:[],evoluzione:[],video:null,captions:{}};
+let lastSaved='', uploading=false;
+const snapshotState=()=>({noi:state.noi,processo:state.processo,evoluzione:state.evoluzione,video:state.video,captions:state.captions});
+const esc=t=>String(t).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+let editing=false, pendingSlot=null, assets=null, db=null, mediaDoc=null, localVideoUrl=null;
+// ogni voce è una stringa: l'id della foto, oppure "v:" + id per un video
+const idOf=x=>!x?'':(typeof x==='string'?(x.startsWith('v:')?x.slice(2):x):(x.id||''));
+const isVid=x=>!!x&&(typeof x==='string'?x.startsWith('v:'):!!x.v);
+const norm=a=>(Array.isArray(a)?a:[]).map(x=>typeof x==='string'?x:(x&&x.id?(x.v?'v:':'')+x.id:null)).filter(Boolean);
+const srcOf=x=>{const id=idOf(x);return !id?'':(id.startsWith('media/')||id.startsWith('data:')||id.startsWith('blob:'))?id:'/_blob/'+id};
+const posterOf=x=>{const id=idOf(x);return id.startsWith('media/')?id.replace(/\.mp4$/,'-poster.jpg'):''};
+const playIcon='<svg viewBox="0 0 10 12"><path d="M0 0 L10 6 L0 12 Z" fill="currentColor"/></svg>';
+function media(x,alt){
+  return isVid(x)
+    ?`<video class="zoomable auto" src="${srcOf(x)}"${posterOf(x)?` poster="${posterOf(x)}"`:''} muted loop playsinline autoplay preload="metadata" aria-label="${alt}"></video><span class="play-badge" aria-hidden="true">${playIcon}</span>`
+    :`<img class="zoomable" src="${srcOf(x)}" alt="${alt}">`;
+}
+
+// --- stato e messaggi ---
+let stTimer=0;
+function status(msg,ms){const s=document.getElementById('status');clearTimeout(stTimer);if(!msg){s.hidden=true;return}s.textContent=msg;s.hidden=false;if(ms)stTimer=setTimeout(()=>s.hidden=true,ms)}
+
+// --- salvataggio ---
+// salvataggi uno alla volta, sempre con lo stato più recente
+let saving=Promise.resolve(), dirty=false;
+function withTimeout(p,ms){return Promise.race([p,new Promise((_,rej)=>setTimeout(()=>rej({code:'timeout'}),ms))])}
+async function ensureDb(){
+  if(mediaDoc||!window.claude||!window.claude.use)return;
+  try{db=await window.claude.use('db');if(db)mediaDoc=db.doc('site/media')}catch(e){}
+}
+// salva solo le parti cambiate, così due telefoni aperti non si cancellano a vicenda
+const pending=new Set();let pendingCaps={};
+function payloadFor(keys){
+  const d={};
+  keys.forEach(k=>{
+    if(k==='video')d.video=state.video&&!idOf(state.video).startsWith('blob:')?state.video:null;
+    else if(k==='captions')d.captions={...pendingCaps};
+    else d[k]=state[k].filter(x=>!idOf(x).startsWith('blob:'));
+  });
+  return d;
+}
+function persist(keys,capId){
+  (keys||['noi','processo','evoluzione','video']).forEach(k=>pending.add(k));
+  if(capId)pendingCaps[capId]=state.captions[capId]||'';
+  saving=saving.then(async()=>{
+    if(!pending.size)return;
+    const ks=[...pending];pending.clear();
+    const data=payloadFor(ks);pendingCaps={};
+    await ensureDb();
+    if(mediaDoc){
+      for(let t=0;t<2;t++){
+        try{await withTimeout(mediaDoc.update(data),20000);lastSaved=JSON.stringify(snapshotState());return}
+        catch(e){
+          if(e&&e.code==='invalid_argument'){try{await withTimeout(mediaDoc.set({...payloadFor(['noi','processo','evoluzione','video']),captions:state.captions}),20000);return}catch(e2){e=e2}}
+          if(t===1)status('Non riesco a salvare ('+((e&&e.code)||'errore')+'). Ricarica la pagina e riprova.',8000);
+        }
+      }
+      return;
+    }
+    const keep=a=>a.filter(x=>!idOf(x).startsWith('blob:'));
+    try{localStorage.setItem('marubini-sito',JSON.stringify({noi:keep(state.noi),processo:keep(state.processo),evoluzione:keep(state.evoluzione),captions:state.captions}))}catch(e){}
+  });
+  return saving;
+}
+
+function resizeToBlob(file){return new Promise(res=>{const u=URL.createObjectURL(file);const im=new Image();im.onload=()=>{const max=1600;let w=im.width,h=im.height;if(Math.max(w,h)>max){const s=max/Math.max(w,h);w=Math.round(w*s);h=Math.round(h*s)}const c=document.createElement('canvas');c.width=w;c.height=h;c.getContext('2d').drawImage(im,0,0,w,h);URL.revokeObjectURL(u);c.toBlob(b=>res(b),'image/jpeg',0.84)};im.onerror=()=>{URL.revokeObjectURL(u);res(null)};im.src=u})}
+const blobToDataUrl=b=>new Promise(r=>{const f=new FileReader();f.onload=()=>r(f.result);f.onerror=()=>r(null);f.readAsDataURL(b)});
+
+function uploadMsg(e){
+  const c=e&&e.code;
+  if(c==='too_large')return 'File troppo grande: il massimo è 20 MB. Accorcia o comprimi il video e riprova.';
+  if(c==='unsupported_type')return 'Formato non supportato: usa foto JPG/PNG e video MP4.';
+  if(c==='quota_or_state')return 'Spazio della pagina esaurito: togli qualche foto e riprova.';
+  if(c==='rate_limited')return 'Troppi caricamenti di fila: aspetta un attimo e riprova.';
+  return 'Caricamento non riuscito. Riprova tra poco.';
+}
+
+// --- disegno ---
+const icon='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="3"/><circle cx="9" cy="10" r="2"/><path d="M21 16l-5-5-8 8"/></svg>';
+function tools(slot,i,len){
+  return `<div class="tools edit-only">
+    ${len>1&&i>0?`<button aria-label="Sposta prima" data-act="up" data-slot="${slot}" data-i="${i}">←</button>`:''}
+    ${len>1&&i<len-1?`<button aria-label="Sposta dopo" data-act="down" data-slot="${slot}" data-i="${i}">→</button>`:''}
+    <button class="del" aria-label="Togli" data-act="del" data-slot="${slot}" data-i="${i}">✕</button>
+  </div>`;
+}
+function render(){
+  const noi=document.querySelector('[data-slot="noi"]');
+  const N=state.noi;
+  noi.innerHTML=(N.length
+    ?`<div class="carousel noi-car" aria-label="Foto e video di Leo e Mattia">${N.map((x,i)=>`<figure class="slide${N.length===1?' is-active':''}" style="margin:0">${media(x,'Leo e Mattia')}${tools('noi',i,N.length)}</figure>`).join('')}</div>`
+    :`<div class="photo-slot"><div class="placeholder">${icon}<span>Foto o video di Leo e Mattia</span></div></div>`)
+    +`<button class="add-btn edit-only" data-add="noi" style="margin-top:22px">+ Aggiungi foto o video</button>
+    <p class="hint edit-only" style="margin-top:8px">Puoi sceglierne più di una insieme dalla galleria.</p>`;
+  const nc=noi.querySelector('.noi-car');if(nc&&N.length>1){nc.addEventListener('scroll',()=>markActive(nc),{passive:true});requestAnimationFrame(()=>markActive(nc))}
+
+  const car=document.getElementById('carousel');const P=state.processo;
+  car.innerHTML=(P.length?P.map((x,i)=>`<figure class="slide" style="margin:0">${media(x,'Fase '+(i+1)+' del processo')}<span class="num">${i+1}</span>${tools('processo',i,P.length)}</figure>`).join('')
+    :`<div class="slide is-active"><div class="placeholder">${icon}<span>Foto e video del processo, dai tagli di carne al marubino</span></div></div>`)
+    +`<div class="slide add"><button class="add-btn" data-add="processo">+ Aggiungi foto o video</button></div>`;
+  const pa=document.getElementById('procAdd');if(pa)pa.innerHTML=`<button class="add-btn edit-only" data-add="processo">+ Aggiungi foto o video</button><p class="hint edit-only" style="margin-top:8px">Puoi sceglierne più di una insieme dalla galleria.</p>`;
+  updateProgress();
+
+  const tl=document.querySelector('[data-slot="evoluzione"]');const E=state.evoluzione;
+  tl.innerHTML=(E.length?E.map((x,i)=>`<div class="tl-item rv"><div class="frame">${media(x,'Evoluzione, '+(i+1))}${tools('evoluzione',i,E.length)}</div>${(c=>`${c?`<p class="tl-cap view-only">${esc(c)}</p>`:''}<input class="cap-input edit-only" id="cap-${idOf(x)}" data-cap="${idOf(x)}" value="${esc(c)}" placeholder="Scrivi una didascalia" maxlength="90" aria-label="Didascalia della foto ${i+1}">`)(state.captions[idOf(x)]||'')}</div>`).join('')
+    :`<div class="tl-item"><div class="frame"><div class="placeholder">${icon}<span>Foto e video dai test dell'anno scorso a oggi</span></div></div></div>`)
+    +`<button class="add-btn edit-only" data-add="evoluzione">+ Aggiungi foto o video</button><p class="hint edit-only" style="margin-top:-30px">Puoi sceglierne più di una insieme dalla galleria.</p>`;
+
+  const v=document.querySelector('[data-slot="video"]');
+  v.innerHTML=`<div class="video-slot">${state.video
+    ?`<video src="${srcOf(state.video)}"${posterOf(state.video)?` poster="${posterOf(state.video)}"`:''} controls playsinline preload="metadata"></video><div class="tools edit-only"><button class="del" aria-label="Togli video" data-act="delvideo">✕</button></div>`
+    :`<div class="placeholder"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="M10 9l5 3-5 3z"/></svg><span>Il video dello sketch</span></div>`}</div>
+    <button class="add-btn edit-only" data-addvideo="1" style="margin-top:12px">${state.video?'Cambia video':'+ Aggiungi video'}</button>
+    <p class="hint edit-only">Video MP4 fino a 20 MB.</p>`;
+  setupReveal();
+  watchVideos();
+}
+
+function markActive(car){
+  const slides=[...car.querySelectorAll('.slide:not(.add)')];let idx=0,best=1e9;const mid=car.scrollLeft+car.clientWidth/2;
+  slides.forEach((s,i)=>{const d=Math.abs(s.offsetLeft+s.offsetWidth/2-mid);if(d<best){best=d;idx=i}});
+  slides.forEach((s,i)=>s.classList.toggle('is-active',i===idx));return idx;
+}
+function updateProgress(){
+  const car=document.getElementById('carousel');
+  const slides=[...car.querySelectorAll('.slide:not(.add)')];const n=state.processo.length;
+  let idx=0,best=1e9;const mid=car.scrollLeft+car.clientWidth/2;
+  slides.forEach((s,i)=>{const d=Math.abs(s.offsetLeft+s.offsetWidth/2-mid);if(d<best){best=d;idx=i}});
+  slides.forEach((s,i)=>s.classList.toggle('is-active',i===idx));
+  document.getElementById('pcount').textContent=n?`${idx+1} / ${n}`:'0 / 0';
+  document.getElementById('pbar').style.width=n?((idx+1)/n*100)+'%':'0';
+}
+let raf=0;document.getElementById('carousel').addEventListener('scroll',()=>{cancelAnimationFrame(raf);raf=requestAnimationFrame(updateProgress)},{passive:true});
+
+let vio=null;
+function watchVideos(){
+  const vids=document.querySelectorAll('video.auto');
+  if(!('IntersectionObserver' in window)){vids.forEach(v=>v.play().catch(()=>{}));return}
+  if(!vio)vio=new IntersectionObserver(es=>es.forEach(e=>{const v=e.target;if(e.isIntersecting&&!matchMedia('(prefers-reduced-motion: reduce)').matches)v.play().catch(()=>{});else v.pause()}),{threshold:.35});
+  vids.forEach(v=>vio.observe(v));
+}
+let io=null;
+function setupReveal(){
+  if(!('IntersectionObserver' in window)||matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+  if(!io)io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.remove('rv-pre');e.target.classList.add('rv-in');io.unobserve(e.target)}}),{threshold:.08});
+  document.querySelectorAll('.rv:not(.rv-seen)').forEach(el=>{el.classList.add('rv-seen');if(el.getBoundingClientRect().top>innerHeight){el.classList.add('rv-pre');io.observe(el)}});
+}
+
+// --- azioni ---
+async function removeAsset(x){const id=idOf(x);if(id.startsWith('blob:'))URL.revokeObjectURL(id);if(assets&&id&&!id.startsWith('data:')&&!id.startsWith('blob:')){try{await assets.delete(id)}catch(e){}}}
+document.addEventListener('click',async e=>{
+  const t=e.target.closest('button,.zoomable');if(!t)return;
+  if(t.matches('.zoomable')){if(!editing)openLight(t.src||t.currentSrc,t.tagName==='VIDEO');return}
+  if(t.dataset.add){pendingSlot=t.dataset.add;const fp=document.getElementById('filePick');fp.multiple=true;fp.click();return}
+  if(t.dataset.addvideo){document.getElementById('videoPick').click();return}
+  const a=t.dataset.act;if(!a)return;
+  if(a==='delvideo'){const old=state.video;state.video=null;render();await persist(['video']);removeAsset(old);return}
+  const arr=state[t.dataset.slot],i=+t.dataset.i;
+  if(a==='del'){const [old]=arr.splice(i,1);render();await persist([t.dataset.slot]);removeAsset(old);return}
+  if(a==='up'&&i>0)[arr[i-1],arr[i]]=[arr[i],arr[i-1]];
+  if(a==='down'&&i<arr.length-1)[arr[i+1],arr[i]]=[arr[i],arr[i+1]];
+  render();persist([t.dataset.slot]);
+});
+
+const looksVideo=f=>(f.type||'').startsWith('video/')||/\.(mov|mp4|m4v|webm)$/i.test(f.name||'');
+async function uploadVideoFile(f){
+  if(!assets)return 'v:'+URL.createObjectURL(f); // solo anteprima locale
+  if(f.size>20*1024*1024)throw {code:'too_large'};
+  let type=f.type;if(!type||type==='video/quicktime'||type==='video/x-m4v')type='video/mp4'; // i .mov dell'iPhone vengono serviti come MP4
+  if(type!=='video/mp4'&&type!=='video/webm')throw {code:'unsupported_type'};
+  const r=await assets.upload(f,{type});return 'v:'+r.id;
+}
+async function uploadImageFile(f){
+  const b=await resizeToBlob(f);if(!b)throw {code:'unsupported_type'};
+  if(assets){const r=await assets.upload(b,{type:'image/jpeg'});return r.id}
+  const d=await blobToDataUrl(b);if(!d)throw {code:'upstream_error'};return d;
+}
+document.getElementById('filePick').addEventListener('change',async e=>{
+  const files=[...e.target.files];e.target.value='';const slot=pendingSlot;if(!files.length||!slot)return;
+  const list=files;
+  uploading=true;
+  const out=[];let fails=0,lastFail=null;
+  const scrollEnd=()=>{const car=slot==='processo'?document.getElementById('carousel'):slot==='noi'?document.querySelector('.noi-car'):null;
+    if(car)requestAnimationFrame(()=>car.scrollTo({left:car.scrollWidth,behavior:'smooth'}))};
+  for(let k=0;k<list.length;k++){
+    const f=list[k],vid=looksVideo(f);
+    status(list.length>1?`Carico ${k+1} di ${list.length}…`:(vid?'Carico il video…':'Carico la foto…'));
+    try{
+      const item=await withTimeout(vid?uploadVideoFile(f):uploadImageFile(f),vid?180000:90000);
+      out.push(item);state[slot].push(item);   // ogni file compare e si salva appena caricato
+      render();scrollEnd();persist([slot]);
+    }catch(err){fails++;lastFail=err}
+  }
+  await saving;uploading=false;
+  const local=!assets&&out.some(isVid);
+  if(fails)status(`${out.length} caricati, ${fails} non riusciti: `+(lastFail&&lastFail.code==='timeout'?'il caricamento si è bloccato, riprova con quelli mancanti.':uploadMsg(lastFail)),9000);
+  else status(local?'Video in anteprima: qui non si può salvare.':(out.length>1?`${out.length} file salvati.`:'Salvato.'),local?6000:2500);
+});
+
+document.getElementById('videoPick').addEventListener('change',async e=>{
+  const f=e.target.files[0];e.target.value='';if(!f)return;
+  if(!assets){ // senza archivio della pagina: solo anteprima locale
+    if(localVideoUrl)URL.revokeObjectURL(localVideoUrl);localVideoUrl=URL.createObjectURL(f);state.video=localVideoUrl;render();
+    status('Video in anteprima: qui non si può salvare.',4000);return;
+  }
+  if(f.size>20*1024*1024){status(uploadMsg({code:'too_large'}),6000);return}
+  let type=f.type;if(!type||type==='video/quicktime')type='video/mp4'; // i .mov dell'iPhone vengono serviti come MP4
+  if(type!=='video/mp4'&&type!=='video/webm'){status(uploadMsg({code:'unsupported_type'}),6000);return}
+  status('Carico il video…');
+  try{
+    const r=await assets.upload(f,{type});
+    const old=state.video;state.video=r.id;render();await persist(['video']);removeAsset(old);
+    status('Video salvato.',2000);
+  }catch(err){status(uploadMsg(err),6000)}
+});
+
+document.addEventListener('change',e=>{
+  const inp=e.target.closest('.cap-input');if(!inp)return;
+  const id=inp.dataset.cap;state.captions[id]=inp.value.trim();persist(['captions'],id);status('Didascalia salvata.',1800);
+});
+const tog=document.getElementById('editToggle');
+tog.addEventListener('click',()=>{editing=!editing;document.body.classList.toggle('editing',editing);tog.setAttribute('aria-pressed',editing);tog.textContent=editing?'Fine modifiche':'Modifica foto e video';updateProgress()});
+
+function openLight(src,isVideo){
+  const lb=document.createElement('div');lb.className='lightbox';lb.setAttribute('role','dialog');lb.setAttribute('aria-label',isVideo?'Video ingrandito':'Foto ingrandita');
+  lb.innerHTML=(isVideo?`<video src="${src}" controls autoplay playsinline></video>`:`<img src="${src}" alt="">`)+`<button aria-label="Chiudi">✕</button>`;
+  const vv=lb.querySelector('video');if(vv)vv.addEventListener('click',ev=>ev.stopPropagation());
+  lb.addEventListener('click',()=>lb.remove());document.body.appendChild(lb);lb.querySelector('button').focus();
+}
+document.addEventListener('keydown',e=>{if(e.key==='Escape')document.querySelector('.lightbox')?.remove()});
+
+// il pulsante Contattaci sparisce quando i contatti sono già sullo schermo
+(()=>{const fab=document.getElementById('contactFab'),sec=document.getElementById('contatti');
+  if(!('IntersectionObserver' in window))return;
+  new IntersectionObserver(es=>es.forEach(e=>fab.classList.toggle('away',e.isIntersecting)),{threshold:.15}).observe(sec);})();
+// --- avvio ---
+const SITE_DATA={"noi": ["media/noi-1.jpg"], "processo": ["media/processo-1.jpg", "media/processo-2.jpg", "v:media/processo-3.mp4", "v:media/processo-4.mp4", "media/processo-5.jpg", "media/processo-6.jpg", "media/processo-7.jpg", "media/processo-8.jpg"], "evoluzione": ["media/evoluzione-1.jpg", "media/evoluzione-2.jpg", "media/evoluzione-3.jpg", "media/evoluzione-4.jpg", "media/evoluzione-5.jpg", "media/evoluzione-6.jpg"], "video": "media/sketch.mp4", "captions": {"media/evoluzione-1.jpg": "Proporzioni del ripieno e scelta delle carni", "media/evoluzione-2.jpg": "Lo studio delle consistenze", "media/evoluzione-3.jpg": "Prove di cottura sulle prime forme", "media/evoluzione-4.jpg": "Stampino e fatto a mano a confronto", "media/evoluzione-5.jpg": "I primi marubini chiusi col dito", "media/evoluzione-6.jpg": "I nostri marubini, fatti col dito"}};
+state.noi=SITE_DATA.noi;state.processo=SITE_DATA.processo;state.evoluzione=SITE_DATA.evoluzione;state.video=SITE_DATA.video;state.captions=SITE_DATA.captions;
+render();
+</script>
+
+
+</body></html>
